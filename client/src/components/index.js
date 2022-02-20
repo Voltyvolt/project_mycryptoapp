@@ -4,3 +4,6 @@ export { default as News } from './News';
 export { default as Cryptocurrencies } from './Cryptocurrencies';
 export { default as Exchanges } from './Exchanges';
 export { default as CryptoDetails } from './CryptoDetails';
+export { default as Welcome } from './Welcome';
+export { default as Transactions } from './Transactions';
+export { default as Services } from './Services';

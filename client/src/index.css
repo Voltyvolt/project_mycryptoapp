@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root{
     --text-primary:#000;
     --bgPrimary:#fff;
@@ -188,7 +192,6 @@ a:hover{
     font-size: 1rem;
     opacity: 0.9;
     padding: 20px;
-
 }
 
 .coin-stats-name{
@@ -318,7 +321,6 @@ width: 70%;
 .provider-name{
     margin-left: 10px;
 }
-
 .chart-header{
     display: flex;
     justify-content: space-between;
@@ -370,8 +372,19 @@ width: 70%;
     width: 200px !important;
     margin-top: 20px !important;
 }
-
+.text-center{
+    margin: 30px 30px 30px 30px;
+    width: 500px;
+    color: #000;
+}
 .footer {
+    background-color: #001529;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+.blockchain-welcome {
     background-color: #001529;
     display: flex;
     flex-direction: column;

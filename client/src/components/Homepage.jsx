@@ -2,6 +2,7 @@ import React from 'react';
 import millify from 'millify';
 import { Typography, Row, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom';
+import { SiBitcoin } from 'react-icons/si';
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
 import Cryptocurrencies from './Cryptocurrencies';
@@ -18,7 +19,7 @@ const Homepage = () => {
 
   return (
     <>
-      <Title level={2} className="heading">Crypto Dashboard</Title>
+      <Title level={2} className="heading"><SiBitcoin /> Crypto Dashboard</Title>
       <Row gutter={[32, 32]}>
         <Col span={12}><Statistic title="รวมเหรียญทั้งหมด" value={globalStats.total} /></Col>
         <Col span={12}><Statistic title="รวม Exchanges ทั้งหมด" value={millify(globalStats.totalExchanges)} /></Col>
