@@ -1,21 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { AiFillGitlab } from 'react-icons/ai';
 import { SiEthereum } from 'react-icons/si';
 import { BsInfoCircle } from 'react-icons/bs';
 import { Col, Row, Typography, Image, Button, Form, Card, Input  } from 'antd';
 
+import { TransactionContext  } from '../context/TransactionContext';
 const { Title } = Typography;
 
 import Loader from './Loader';
 
 const Welcome = () => {
+  const { connectWallet, connectedAccount, formData, sendTransaction, handleChange } = useContext(TransactionContext);
 
-  const connectWallet = () => {
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
 
-  }
+    e.preventDefault();
 
-  const handleSubmit = () => {
+    if(!addressTo || !amount || !keyword || !message ) return;
 
+    sendTransaction();
   }
 
   return (
@@ -43,21 +47,23 @@ const Welcome = () => {
                     </div>
                   </div>
                
-                  <Button type="primary" style={{ background: "black", borderColor: "white", marginTop: "25px" }} block>
+                  {!connectedAccount && 
+                  (<Button type="primary" onClick={connectWallet} style={{ background: "black", borderColor: "white", marginTop: "25px" }} block>
                     Connect Wallet
-                  </Button>
+                  </Button>)}
+
                   <Title level={5} style={{ color: 'white', textAlign: 'center', marginTop: '25px' }}><SiEthereum/> Address To</Title>
-                  <Input placeholder="Address" />
-                  <Title level={5} style={{ color: 'white', textAlign: 'center', marginTop: '25px' }}><SiEthereum/> Amount(ETH)</Title>
-                  <Input placeholder="Amount(ETH)" />
+                  <Input placeholder="Address" name="addressTo" type="text" handleChange={handleChange} />
+                  <Title level={5} style={{ color: 'white', textAlign: 'center', marginTop: '25px' }}><SiEthereum/> Amount(BNB)</Title>
+                  <Input placeholder="Amount(ETH)" name="amount" type="number" handleChange={handleChange} />
                   <Title level={5} style={{ color: 'white', textAlign: 'center', marginTop: '25px' }}><SiEthereum/> Keyword</Title>
-                  <Input placeholder="Keyword" />
+                  <Input placeholder="Keyword" name="keyword" type="text" handleChange={handleChange} />
                   <Title level={5} style={{ color: 'white', textAlign: 'center', marginTop: '25px' }}><SiEthereum/> Message</Title>
-                  <Input placeholder="Message" />
+                  <Input placeholder="Message" name="message" type="text" handleChange={handleChange} />
                   {false
                       ? <Loader />
                       : (
-                        <Button type="primary" size='large' style={{ marginTop: '25px' }} onClick={handleSubmit} block>Send Now</Button>
+                        <Button type="primary" size='large' style={{ marginTop: '25px' }} onClick={ handleSubmit } block>Send Now</Button>
                       )}
                 </Form.Item>
               </Col>

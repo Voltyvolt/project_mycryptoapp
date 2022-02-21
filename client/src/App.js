@@ -6,7 +6,7 @@ import { Exchanges, Homepage, News, Cryptocurrencies, CryptoDetails, Navbar, Ser
 import './App.css';
 
 const App = () => (
-  <div className="app">
+      <div className="app">
     <div className="navbar">
       <Navbar />
     </div>
