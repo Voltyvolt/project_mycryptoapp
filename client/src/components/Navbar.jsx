@@ -42,9 +42,6 @@ const Navbar = () => {
         <Menu.Item icon={<FundOutlined />}>
           <Link to="/cryptocurrencies">รายการเหรียญ</Link>
         </Menu.Item>
-        <Menu.Item icon={<MoneyCollectOutlined />}>
-          <Link to="/exchanges">Exchanges</Link>
-        </Menu.Item>
         <Menu.Item icon={<ThunderboltOutlined />}>
           <Link to="/welcome">โอนเหรียญ</Link>
         </Menu.Item>
