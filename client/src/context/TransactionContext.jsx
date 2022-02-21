@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 
 import { contractABI, contractAddress } from '../utils/constants';
@@ -15,47 +15,47 @@ const getEthereumContract = () => {
     console.log({
         provider,
         signer,
-        transactionContract
+        transactionContract,
     });
-}
+};
 
 export const TransactionProvider = ({ children }) => {
-    const [connectedAccount, setconnectedAccount] = useState("");
-    const [formData, setFormData] = useState({addressTo: '', amount: '', keyword: '', message: ''});
+    const [connectedAccount, setconnectedAccount] = useState('');
+    const [formData, setFormData] = useState({ addressTo: '', amount: '', keyword: '', message: '' });
 
     const handleChange = (e, name) => {
-        setFormData((prevState) => ({...prevState, [name]: e.target.value}));
-    }
+        setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
+    };
 
     const checkIfWalletConnected = async () => {
         try {
-            if(!ethereum) return alert("Please install Metamask");
+            if (!ethereum) return alert("Please install Metamask");
 
             const accounts = await ethereum.request({ method: 'eth_accounts' });
-            if(accounts.length){
+            if (accounts.length) {
                 setconnectedAccount(accounts[0]);
 
                 //getAllTransactions();
-            } else{
+            } else {
                 console.log('No account founds');
-        }
+            }
         } catch (error) {
             console.log(error);
             throw new Error("No ethereum object");
         }
 
-        
+
     }
 
     const connectWallet = async () => {
         try {
-            if(!ethereum) return alert("Please install Metamask");
+            if (!ethereum) return alert("Please install Metamask");
 
             const accounts = await ethereum.request({ method: 'eth_requestAccounts', });
 
             setconnectedAccount(accounts[0]);
             window.location.reload();
-       
+
         } catch (error) {
             console.log(error);
             throw new Error("No ethereum object");
@@ -64,7 +64,7 @@ export const TransactionProvider = ({ children }) => {
 
     const sendTransaction = async () => {
         try {
-            if(!ethereum) return alert("Please install Metamask");
+            if (!ethereum) return alert("Please install Metamask");
 
             const { addressTo, amount, keyword, message } = formData;
             getEthereumContract();
