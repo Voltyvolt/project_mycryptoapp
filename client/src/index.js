@@ -12,13 +12,13 @@ import 'antd/dist/antd.css';
 
 ReactDOM.render(
   <TransactionProvider>
-      <React.StrictMode>
-    <Router>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </Router>
-  </React.StrictMode>,
+    <React.StrictMode>
+      <Router>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </Router>
+    </React.StrictMode>,
   </TransactionProvider>,
   document.getElementById('root'),
 );
