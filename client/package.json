@@ -2,6 +2,7 @@
   "name": "metavolt",
   "version": "0.1.0",
   "private": true,
+  "start": "webpack-dev-server --inline --content-base . --history-api-fallback",
   "dependencies": {
     "@ant-design/icons": "^4.6.4",
     "@reduxjs/toolkit": "^1.6.1",
