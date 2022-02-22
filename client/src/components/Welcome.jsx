@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-sequences */
 /* eslint-disable no-constant-condition */
 import React, { useContext } from 'react';
@@ -70,7 +72,7 @@ const Welcome = () => {
 
               {!connectedAccount
                   && (
-                  <Button type="primary" onClick={connectWallet, handleHistory} style={{ background: 'black', borderColor: 'white', marginTop: '25px' }} block>
+                  <Button type="primary" onClick={connectWallet} style={{ background: 'black', borderColor: 'white', marginTop: '25px' }} block>
                     Connect Wallet
                   </Button>
 )}
