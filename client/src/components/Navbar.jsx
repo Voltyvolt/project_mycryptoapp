@@ -43,10 +43,13 @@ const Navbar = () => {
           <Link to="/cryptocurrencies">รายการเหรียญ</Link>
         </Menu.Item>
         <Menu.Item icon={<ThunderboltOutlined />}>
-          <Link to="/welcome">โอนเหรียญ</Link>
+          <Link to="/transfer">โอนเหรียญ</Link>
         </Menu.Item>
         <Menu.Item icon={<TransactionOutlined />}>
           <Link to="/transactions">ประวัติการทำธุรกรรม</Link>
+        </Menu.Item>
+        <Menu.Item icon={<ThunderboltOutlined />}>
+          <Link to="/swap">Swap Token</Link>
         </Menu.Item>
         <Menu.Item icon={<BulbOutlined />}>
           <Link to="/news">ข่าวสารคริปโตต่างประเทศ</Link>

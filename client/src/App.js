@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 
-import { Homepage, News, Cryptocurrencies, CryptoDetails, Navbar, Services, Transactions, Welcome } from './components';
+import { Homepage, News, Cryptocurrencies, CryptoDetails, Navbar, Services, Transactions, Welcome, Swap } from './components';
 import './App.css';
 
 const App = () => (
@@ -23,7 +23,7 @@ const App = () => (
             <Route exact path="/crypto/:coinId">
               <CryptoDetails />
             </Route>
-            <Route exact path="/welcome">
+            <Route exact path="/transfer">
               <Welcome />
             </Route>
             <Route exact path="/services">
@@ -31,6 +31,9 @@ const App = () => (
             </Route>
             <Route exact path="/transactions">
               <Transactions />
+            </Route>
+            <Route exact path="/swap">
+              <Swap />
             </Route>
             <Route exact path="/news">
               <News />
