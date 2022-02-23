@@ -19,13 +19,7 @@ const options = [
 ];
 
 const Swap = () => {
-    const [tokenState, settokenState] = useState({ value: 'eth', label: 'ETH' });
-
-    const [handleChange] = useState(() => {
-        return () => {
-            settokenState(tokenState);
-        };
-      });
+    const [tokenState, settokenState] = useState('BNB');
 
   return (
     <>
@@ -39,11 +33,16 @@ const Swap = () => {
             placeholder="Choose Your Token"
             size="large"
             defaultValue="BNB"
+            onChange={(e) => {
+              const token = e.target.value;
+              settokenState(token);
+              console.log(token);
+            }}
           >
-            <Option value="eth">BNB</Option>
-            <Option value="usdc">ETH</Option>
-            <Option value="bnb">USDC</Option>
-            <Option value="dai">DAI</Option>
+            <option value="eth">BNB</option>
+            <option value="usdc">ETH</option>
+            <option value="bnb">USDC</option>
+            <option value="dai">DAI</option>
           </Select>
         </div>
         <Title level={2} className="heading">{tokenState}</Title>
