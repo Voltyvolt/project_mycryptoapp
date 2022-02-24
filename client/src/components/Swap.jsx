@@ -2,12 +2,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
 import React, { useState, useEffect } from 'react';
-import { Input, Select, Typography } from 'antd';
+import { Input, Typography } from 'antd';
+import Select from 'react-select';
 
 const { Title } = Typography;
-const { Option } = Select;
 
-const options = [
+const optionsList = [
     {
         value: 'eth',
         label: 'ETH',
@@ -16,10 +16,19 @@ const options = [
         value: 'usdc',
         label: 'USDC',
     },
+    {
+      value: 'bnb',
+      label: 'BNB',
+  },
 ];
 
 const Swap = () => {
-    const [tokenState, settokenState] = useState('BNB');
+    const [tokenState, settokenState] = useState(optionsList.value);
+
+    const handleChange = (e) => {
+      settokenState(e.value);
+      console.log(tokenState);
+    };
 
   return (
     <>
@@ -32,20 +41,11 @@ const Swap = () => {
           <Select
             placeholder="Choose Your Token"
             size="large"
-            defaultValue="BNB"
-            onChange={(e) => {
-              const token = e.target.value;
-              settokenState(token);
-              console.log(token);
-            }}
-          >
-            <option value="eth">BNB</option>
-            <option value="usdc">ETH</option>
-            <option value="bnb">USDC</option>
-            <option value="dai">DAI</option>
-          </Select>
+            onChange={handleChange}
+            options={optionsList}
+          />
         </div>
-        <Title level={2} className="heading">{tokenState}</Title>
+        <Title level={2} className="heading">Token : {tokenState}</Title>
       </div>
     </>
   );
